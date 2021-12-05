@@ -11,22 +11,22 @@ namespace DataServer
 {
     public class DataServerSandbox : ERMA.MMO.Sandbox
     {
-        public DataServerSandbox(ConfigSet configuration, PacketFunctionDictionaryType packetFunctionDictionaryType) : 
-            base(configuration, packetFunctionDictionaryType, typeof(DataServerSandbox))
+        public DataServerSandbox(ConfigSet configuration, PacketActionDictionary packetFunctionDictionary) : 
+            base(packetFunctionDictionary, typeof(DataServerSandbox))
         {
-            PacketFunctionsDictionary newDictionary = new PacketFunctionsDictionary(packetFunctionDictionaryType, null);
-            PacketFunctionsDictionary = newDictionary;
+            PacketActionDictionary newDictionary = new PacketActionDictionary(0, null);
+            PacketActionsDictionary = newDictionary;
 
-            PacketFunction pf1 = new PacketFunction();
+            PacketAction pf1 = new PacketAction();
             pf1.PacketID = 7;
             pf1.Name = "FGetDBData";
             pf1.NumberOfParameters = 2;
-            PacketFunction pf2 = new PacketFunction();
+            PacketAction pf2 = new PacketAction();
             pf2.PacketID = 8;
             pf2.Name = "FTestFunction";
             pf2.NumberOfParameters = 4;
-            PacketFunctionsDictionary.AddNewFunction(pf1);
-            PacketFunctionsDictionary.AddNewFunction(pf2);
+            PacketActionsDictionary.AddNewAction(pf1);
+            PacketActionsDictionary.AddNewAction(pf2);
         }
 
         public void FGetDBData(PacketData par1)

@@ -68,7 +68,7 @@ namespace DataServer
         {
             if (packet != null)
             {
-                ushort ID = packet.PacketID;
+                var ID = packet.PacketID;
                 return (PacketID)ID;
             }
             return 0;

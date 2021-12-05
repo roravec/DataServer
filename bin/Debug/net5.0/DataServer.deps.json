@@ -1074,8 +1074,7 @@
       "ERMA.MMO/1.0.0": {
         "dependencies": {
           "Connectivity": "1.0.0",
-          "DatabaseConnector": "1.0.0",
-          "ini-parser": "2.5.2"
+          "DatabaseConnector": "1.0.0"
         },
         "runtime": {
           "ERMA.MMO.dll": {}

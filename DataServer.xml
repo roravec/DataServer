@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataServer</name>
+    </assembly>
+    <members>
+        <member name="T:DataServer.DataServer">
+            <summary>
+            Data server class
+            </summary>
+        </member>
+    </members>
+</doc>

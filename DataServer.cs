@@ -11,17 +11,22 @@ using System.Threading.Tasks;
 
 namespace DataServer
 {
+    /// <summary>
+    /// Data server class
+    /// </summary>
     public class DataServer
     {
         protected ConfigSet ConfigurationSetup;
         protected Sandbox MainSandbox;
+        protected DatabaseConnector.DatabaseConnector dbConn = new DatabaseConnector.DatabaseConnector("");
 
         public DataServer(ConfigSet configuration)
         {
             ConfigurationSetup = configuration;
-            MainSandbox = new DataServerSandbox(ConfigurationSetup, PacketFunctionDictionaryType.MLHADATASERVER);
+            PacketActionDictionary packetFunctionsDisct = new PacketActionDictionary(0, dbConn);
+            MainSandbox = new DataServerSandbox(ConfigurationSetup, packetFunctionsDisct);
             MainSandbox.CreateDBConnection(ConfigurationSetup.DBServer, ConfigurationSetup.DBLogin, ConfigurationSetup.DBPassword, ConfigurationSetup.DBDatabase);
-            MainSandbox.CreateTCPServer(1215);
+            MainSandbox.CreateServer(1215);
             Console.WriteLine("MainSandbox initialized");
         }
 
@@ -31,7 +36,7 @@ namespace DataServer
             MainSandbox.Start();
             Console.WriteLine("MainSandbox has started.");
             Thread.Sleep(1000);
-            var client = MainSandbox.CreateTCPClient("127.0.0.1", 1215);
+            var client = MainSandbox.CreateClient("127.0.0.1", 1215);
             client.Connect();
             Thread.Sleep(1000);
             Console.WriteLine("Client Connection status: "+client.GetConnectionStatus());

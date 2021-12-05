@@ -1701,7 +1701,7 @@
       },
       "Connectivity/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
           "bin/placeholder/Connectivity.dll": {}
         },
@@ -1711,7 +1711,7 @@
       },
       "DatabaseConnector/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "MySql.Data": "8.0.21"
         },
@@ -1727,8 +1727,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Connectivity": "1.0.0",
-          "DatabaseConnector": "1.0.0",
-          "ini-parser": "2.5.2"
+          "DatabaseConnector": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ERMA.MMO.dll": {}
